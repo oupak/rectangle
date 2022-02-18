@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>All rectangles</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <center>
+      <h1>All rectangles</h1>
+      <table>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>color</th>
+        </tr>
+        <% rows.forEach(function(r) { %>
+			<tr>
+				<td>
+					<a href="rectangle?id=<%= r.id %>"><%= r.id %></a>
+				</td>
+				<td><%= r.name %></td>
+				<td><%= r.color %></td>
+			</tr>
+		<% }); %>
+      </table>
+	  <div>
+		<button id="addbtn">Add rectangle</button>
+		<form id="addrect" action="/addrect" method="post" style="display:none;">
+			<input type="text" name="name" placeholder="Name"></input><br>
+			<input type="number" name="width" placeholder="Width"></input><br>
+			<input type="number" name="height" placeholder="Height"></input><br>
+			<input type="text" name="color" placeholder="Color"></input><br>
+			<button id="submitbtn" type="submit" name="add">Submit</button>
+		</form>
+	  </div>
+    </center>
+    <script src="/script.js"></script>
+  </body>
+</html>
